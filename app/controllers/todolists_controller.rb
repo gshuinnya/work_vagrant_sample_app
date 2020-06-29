@@ -10,12 +10,16 @@ class TodolistsController < ApplicationController
   	 # DBへ保存する
   	  list.save
   	 # トップ画面へリダイレクト
-  	  redierect_to '/top'
+  	  redirect_to '/top'
+  	end
+
+  	def index
+  		@lists = List.all
   	end
     private
 
   	def list_params
-　　　　　params.require(:list).permit(:title, :body)
+        params.require(:list).permit(:title, :body)
   	end
 
 end
